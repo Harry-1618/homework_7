@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+/*编写一个程序读取输入，读到#字符停止，然后报告读取的空格数、
+换行符数和所有其他字符的数量*/
+
+#include<stdio.h>
+
+int main()
+{
+	int ch1=0, space=0, n=0;
+	int ch = 0;
+	while ((ch = getchar()) != '#')
+	{
+		if (' ' == ch)
+			space++;
+		else if ('\n' == ch)
+			n++;
+		else
+			ch1++;
+	}
+
+	printf("space:%d character:%d n:%d", space, ch1, n);
+	
+	return 0;
+
+}
