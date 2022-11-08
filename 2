@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+/*编写一个程序读取输入，读到#字符停止程序要打印每个输入的字符以及
+对应的ASCII码（十进制）。每打印八个“字符-ASCII码”组合。建议使用
+字符计数和求模运算符（%）在每八个循环周期时打印一个换行符。*/
+
+#include<stdio.h>
+
+int main()
+{
+	char ch;
+	int num = 0;
+	while ((ch = getchar()) != '#')
+	{
+		num++;
+		printf("%c %d\n", ch, ch);
+		if (0 == num % 8)
+			printf("\n");
+	}
+
+
+	return 0;
+
+}
