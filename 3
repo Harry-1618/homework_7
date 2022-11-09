@@ -1,0 +1,33 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+/*读取整数直到输入0为止。输入结束后，程序应报告输入的偶数个数（不包括0）
+、这些偶数的平均值、输入的奇数个数及奇数的平均值*/
+
+#include<stdio.h>
+
+int main()
+{
+	long int ch;
+	float SumEven_num = 0;
+	float SumOdd_num = 0;
+	long int E_num = 0;
+	long int O_num = 0;
+	while (scanf("%ld",&ch)&&ch!=0)
+	{
+		if (0 == ch % 2)
+		{
+			SumEven_num+=ch;
+			E_num++;
+		}
+		else
+		{
+			SumOdd_num += ch;
+			O_num++;
+		}
+	}
+
+	printf("AvenEven_num:%f AvenOdd_num:%f E_num:%ld O_num:%ld", SumEven_num / E_num, SumOdd_num / O_num, E_num, O_num);
+
+
+	return 0;
+
+}
