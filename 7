@@ -1,0 +1,75 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+/*类别          税金           
+  单身          17850美元按15%计，超出部分按28%计
+  户主          23900美元按15%计，超出部分按28%计
+  已婚，共有    29750美元按15%计，超出部分按28%计
+  已婚，离异    14875美元按15%计，超出部分按28%计
+  -----------------------------------------------
+  编写一个程序，让用户指定缴纳税金的种类和应纳税
+  税收入，然后计算税金。程序因通过循环让用户可以多
+  次输入。*/
+  
+#include<stdio.h>
+#define solo 17850
+#define host 23900
+#define marry_all 29750
+#define marry_div 14875
+void menu1()
+{
+	printf("请选取你的类别(或输入q退出) ：\n");
+	printf("a.单身        b.户主\n");
+	printf("c.已婚，共有  d.已婚，离异\n");
+}
+
+void Calculate(int i);
+
+void menu2()
+{
+	printf("请输入你的月薪：");
+}
+int main()
+{
+	char choose;
+	while (1) {
+		menu1();
+		scanf("%c", &choose);
+		while (getchar() != '\n')
+			continue;
+		switch (choose)
+		{
+		case 'a':
+			Calculate(solo);
+			break;
+		case 'b':
+			Calculate(host);
+			break;
+		case 'c':
+			Calculate(marry_all);
+			break;
+		case 'd':
+			Calculate(marry_div);
+			break;
+		case 'q':
+			goto quit;
+		default:
+			printf("输入错误\n");
+		}
+	}
+quit:printf("OVER!\n");
+	return 0;
+
+}
+
+void Calculate(int i)
+{
+	float salary = 0;
+	menu2();
+	scanf("%f", &salary);
+	while (getchar() != '\n')
+		continue;
+	if (salary < i)
+		printf("税金:%f\n", salary * 0.15);
+	else
+		printf("税金:%f\n", i * 0.15 + (salary - i) * 0.28);
+
+}
